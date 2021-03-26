@@ -1,5 +1,5 @@
 {
-    "name": "motorbit-receive",
+    "name": "motorbit-receiver",
     "description": "",
     "dependencies": {
         "core": "*",

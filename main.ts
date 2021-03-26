@@ -1,17 +1,26 @@
-radio.onReceivedNumber(function (receivedNumber) {
-    value = receivedNumber
-    music.playTone(587, music.beat(BeatFraction.Eighth))
+radio.onReceivedValue(function (name, value) {
+    if (name == "motor") {
+        speed = value
+        music.playTone(587, music.beat(BeatFraction.Eighth))
+    }
+    if (name == "servo") {
+        pins.servoWritePin(AnalogPin.P1, value)
+        music.playTone(247, music.beat(BeatFraction.Eighth))
+        basic.pause(200)
+    }
 })
-let value = 0
+let speed = 0
 radio.setGroup(1)
-value = 0
+speed = 0
+let servodegree = 0
+pins.servoWritePin(AnalogPin.P1, servodegree)
 basic.forever(function () {
     led.plotBarGraph(
-    value,
+    speed,
     100
     )
-    if (value == 0) {
+    if (speed == 0) {
         motorbit.brake()
     }
-    motorbit.freestyle(value, value)
+    motorbit.freestyle(speed, speed)
 })
