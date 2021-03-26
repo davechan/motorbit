@@ -1,5 +1,6 @@
 radio.onReceivedNumber(function (receivedNumber) {
     value = receivedNumber
+    music.playTone(587, music.beat(BeatFraction.Eighth))
 })
 let value = 0
 radio.setGroup(1)
