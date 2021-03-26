@@ -12,8 +12,7 @@ radio.onReceivedValue(function (name, value) {
 let speed = 0
 radio.setGroup(1)
 speed = 0
-let servodegree = 0
-pins.servoWritePin(AnalogPin.P1, servodegree)
+pins.servoWritePin(AnalogPin.P1, 0)
 basic.forever(function () {
     led.plotBarGraph(
     speed,
